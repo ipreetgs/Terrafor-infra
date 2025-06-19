@@ -1,0 +1,14 @@
+pipeline:
+  name: Terrafom-CI
+  identifier: TerrafomCI
+  projectIdentifier: DemoTx
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: Email
+        identifier: Email
+        tags: {}
+        template:
+          templateRef: init_stage
+          versionLabel: v1
