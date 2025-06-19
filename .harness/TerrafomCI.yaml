@@ -6,13 +6,6 @@ pipeline:
   tags: {}
   stages:
     - stage:
-        name: Email
-        identifier: Email
-        tags: {}
-        template:
-          templateRef: init_stage
-          versionLabel: v1
-    - stage:
         name: Terraform-Init
         identifier: TerraformInit
         description: ""
