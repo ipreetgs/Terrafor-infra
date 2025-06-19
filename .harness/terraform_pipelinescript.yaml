@@ -1,0 +1,34 @@
+pipeline:
+  name: Terraform_pipeline
+  identifier: Terraform_pipeline
+  projectIdentifier: DemoTx
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: Terraform_setup
+        identifier: Terraform_setup
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: TerraformPlan
+                  name: TerraformPlan
+                  identifier: TerraformPlan
+                  spec:
+                    provisionerIdentifier: aws
+                    cloudCliConfiguration:
+                      command: Apply
+                      configFiles:
+                        store:
+                          spec:
+                            connectorRef: account.Github_OAuth_1702454216196
+                            repoName: Terrafor-infra
+                            gitFetchType: Branch
+                            branch: main
+                            folderPath: .
+                          type: Github
+                  timeout: 10m
+        tags: {}
